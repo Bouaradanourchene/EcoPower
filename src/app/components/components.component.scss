@@ -1,0 +1,57 @@
+h2 {
+    text-align: center;
+
+    margin-bottom: 5%;
+    
+    color: #333;
+    padding-bottom: 5%;
+    height: 100%;
+  }
+  .provider {
+    margin: 2rem 0;
+  }
+  
+  .provider img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .provider h6 {
+    margin-top: 1rem;
+  }
+ /* adjust title weight */
+
+  
+  /* adjust logo height */
+  .provider img {
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  
+  /* adjust logo spacing */
+  .col-md-6.text-center{
+    margin-bottom: 40px;
+    margin-top: 5%;
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+
+
+  
+  
+  
+  
+   
+  

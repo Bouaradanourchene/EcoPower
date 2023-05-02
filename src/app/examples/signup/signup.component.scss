@@ -1,0 +1,113 @@
+.card-registerr {
+    background-color: rgba(0, 0, 0, 0.5); /* transparent color with 0.5 opacity */
+    width: 400px; /* or any desired width */
+    height: auto; /* set a specific height */
+    margin: 0 auto; /* center the element horizontally */
+    z-index: 2;
+    color: #f7f7f7;
+
+  }
+  .card-register {
+    background-color: rgba(0, 0, 0, 0.5); /* transparent color with 0.5 opacity */
+    width: 400px; /* or any desired width */
+    height: auto; /* set a specific height */
+    margin: 0 auto; /* center the element horizontally */
+    z-index: 2;
+
+  }
+  .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px; /* adjust as needed */
+    height: 690px; /* adjust as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* transparent color with 0.5 opacity */
+    border: 1px solid #ddd; /* adjust as needed */
+    border-radius: 5px; /* adjust as needed */
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1); /* adjust as needed */
+    z-index: 1;
+  }
+  .slider {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .radio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-weight: 200;
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 32px;
+  }
+  
+  label {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  label span {
+    color: #999;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: none;
+    margin-left: 5px;
+  }
+  
+  
+  .radio-label {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #e08d08;
+    margin-left: 10px;
+  }
+  
+  .radio-label input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .radio-custom {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 2px solid #666;
+    background-color: #fff;
+  }
+  
+  .radio-custom::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #666;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .radio-custom input[type="radio"]:checked + .radio-custom::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .radio-custom:focus-within {
+    box-shadow: 0 0 0 2px #0c0202;
+  }
+  
+  .radio-custom:focus-within::before {
+    border-color: #007bff;
+  }
+  
