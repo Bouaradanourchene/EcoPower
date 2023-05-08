@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
     selector: 'app-navbar',
@@ -10,7 +13,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element : ElementRef,private router:Router, private cookieService:CookieService, private authService:AuthService) {
         this.sidebarVisible = false;
     }
 
@@ -71,4 +74,29 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+    isLogin(){
+    this.router.navigateByUrl('/login');
+    }
+
+    isRegister(){
+        this.router.navigateByUrl('/signup');
+        }
+    isLogOut(){
+        this.authService.logout();
+        this.router.navigateByUrl('/dashboard');
+        }
+    
+
+    authToken(): boolean {
+        const token = this.cookieService.get('token');
+        if (token) {
+          // utilisateur connecté
+          return true;
+        } else {
+          // utilisateur non connecté
+          return false;
+        }
+      }
+    
 }

@@ -20,6 +20,9 @@ import { ListCategoryComponent } from './examples/admin/list-category/list-categ
 import { AddCategoryComponent } from './examples/admin/add-category/add-category.component';
 import { AddProductComponent } from './examples/admin/add-product/add-product.component';
 import { CommonModule } from '@angular/common';
+import { CartComponent } from './examples/shop/cart/cart.component';
+import { CheckoutComponent } from './examples/checkout/checkout.component';
+import { LoginComponent } from './examples/login/login.component';
 
 
 
@@ -37,6 +40,9 @@ import { CommonModule } from '@angular/common';
     FooterComponent,
     AddProductComponent,
     AddCategoryComponent,
+    CartComponent,
+    LoginComponent,
+    CheckoutComponent
     
 
 

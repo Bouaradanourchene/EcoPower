@@ -26,7 +26,7 @@ export class AddProductComponent implements OnInit {
   file!: string;
   public imagePath: any;
   imgURL: any;
-
+idU: number= 3;
   constructor(
     public productService: ProductService,
     private router: Router,
@@ -67,7 +67,7 @@ export class AddProductComponent implements OnInit {
 
     // formData.append('file', this.userFile);
     formData.append('file', this.file);
-    this.productService.addTask(formData).subscribe((data) => {
+    this.productService.addTask(formData,this.idU).subscribe((data) => {
       this.router.navigate(['/listProduct']);
     });
   }

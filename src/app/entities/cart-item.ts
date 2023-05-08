@@ -9,6 +9,7 @@ export class CartItem {
     nprix!:number;
     gprix!:number;
     quantity!:number;
+  product: any;
 
     constructor(product: Product){
         this.id = product.id

@@ -23,31 +23,38 @@ import { UpdateProductComponent } from './examples/admin/update-product/update-p
 import { CartComponent } from './examples/shop/cart/cart.component';
 import { SingleProductComponent } from './examples/shop/single-product/single-product.component';
 import { CheckoutComponent } from './examples/checkout/checkout.component';
+import { AddUserComponent } from './examples/admin/add-user/add-user.component';
+import { AuthGuard } from './utils/auth-guard';
+import { ListUserComponent } from './examples/admin/list-user/list-user.component';
+import { LoginComponent } from './examples/login/login.component';
+import { UpdateuserComponent } from './examples/admin/updateuser/updateuser.component';
 
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
-    {path: 'listProduct', component: ListProductComponent },
-    {path: 'listCategory', component: ListCategoryComponent},
-    {path: 'products', component: ProductsComponent },
-    {path: 'listProduct/:id', component: ProductbycatComponent },
+    {path: 'listProduct', component: ListProductComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"} },
+    {path: 'listCategory', component: ListCategoryComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"}},
+    {path: 'products', component: ProductsComponent ,canActivate:[AuthGuard],data:{permittedRole:"User"}},
+    {path: 'listProduct/:id', component: ProductbycatComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"} },
     {path: 'shop', component: ProductsComponent },
     {path: 'singleProd', component: SingleProductComponent },
     {path: 'dashboard', component: DashboardComponent },
     {path: 'orders', component: OrdersComponent },
     {path: 'updateorders', component: UpdateOrderComponent },
-    {path: 'cart', component: CartComponent },
+    {path: 'cart', component: CartComponent ,canActivate:[AuthGuard],data:{permittedRole:"User"}},
     {path: 'modal', component: NgbdModalContent },
-    {path: 'addCategory', component: AddCategoryComponent},
-    {path: 'addProduct', component: AddProductComponent},
-    {path: '/updateCategory', component: UpdateProductComponent},
-    {path: 'updateProduct/:id', component: UpdateProductComponent },
-    {path: 'checkout', component: CheckoutComponent},
+    {path: 'addCategory', component: AddCategoryComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"}},
+    {path: 'addProduct', component: AddProductComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"}},
+    {path: 'checkout', component: CheckoutComponent, canActivate:[AuthGuard],data:{permittedRole:"User"}},
+    {path:'adduser',component:AddUserComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"}},
+    {path:'listuser',component:ListUserComponent,canActivate:[AuthGuard],data:{permittedRole:"Provider"}},
+    {path:'login',component:LoginComponent}, 
+    { path:'profile', canActivate:[AuthGuard], component: ProfileComponent },
+    { path:'updateuser/:id',     component: UpdateuserComponent },
 
 
 

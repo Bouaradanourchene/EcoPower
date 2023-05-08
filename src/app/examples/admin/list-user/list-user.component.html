@@ -1,0 +1,39 @@
+<div class="content">
+  <!-- Recent Sales Start -->
+  <div class="container-fluid pt-4 px-4">
+      <div class="bg-light text-center rounded p-4">
+          <div class="d-flex align-items-center justify-content-between mb-4" >
+          </div>
+          <div class="search-hero">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+          </div>
+          <div class="table-responsive">
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
+                  <thead>
+                      <tr class="text-dark">
+                      <th scope="col">completname</th>
+                      <th scope="col">email</th>
+                      <th scope="col">cin</th>
+                      <th scope="col">phone</th>
+                      <th scope="col">address</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let u of users">
+                             <td>{{u.completname}}</td>
+                            <td>{{u.email}}</td>
+                              <td>{{u.cin}}</td>
+                              <td>{{u.phone}}</td>
+                              <td>{{u.address}}</td>
+                              <td style="text-align: center;">
+                                <button (click)="onDeletUser(u.id)" type="button" class="btn btn-danger"> <i class="bi bi-trash-fill"></i></button>
+                                <button class="btn btn-primary" type="button" (click)="onUpdateuser(u)" style="margin-left: 5px;"><i class="bi bi-pencil-fill"></i></button>
+                            </td>
+                      </tr>
+                  </tbody>
+              </table>
+              </div>
+      </div>
+  </div>
+  <!-- Recent Sales End -->
+</div>

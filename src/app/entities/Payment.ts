@@ -1,5 +1,6 @@
 export class Payment {
-     amount: number;
-     currency: String;
-     Emailrecu: String;
-}
+  constructor(
+ public amount?: number, 
+ public currency?: String){}
+           
+     }

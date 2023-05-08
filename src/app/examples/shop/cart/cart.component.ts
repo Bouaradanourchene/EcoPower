@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from 'app/entities/cart-item';
 import { Product } from 'app/entities/product';
 import { CartService } from 'app/services/cart.service';
@@ -23,7 +23,8 @@ export class CartComponent implements OnInit {
   constructor(
     public productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -70,5 +71,7 @@ export class CartComponent implements OnInit {
     this.productService.getImagesByProducts(this.id).subscribe((data) => {
       this.files = data;
     });
+    
   }
+ 
 }

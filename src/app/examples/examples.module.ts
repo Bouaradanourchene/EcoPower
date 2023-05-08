@@ -7,7 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { ListCategoryComponent } from './admin/list-category/list-category.component';
 import { ProductsComponent } from './shop/products/products.component';
-import { CartComponent } from './shop/cart/cart.component';
+
 import { CategoryProductComponent } from './shop/category-product/category-product.component';
 import { ProductbycatComponent } from './shop/productbycat/productbycat.component';
 import { SingleProductComponent } from './shop/single-product/single-product.component';
@@ -24,6 +24,10 @@ import { UpdateProductComponent } from './admin/update-product/update-product.co
 import { HeaderComponent } from './shop/header/header.component';
 import { FooterComponent } from './shop/footer/footer.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddUserComponent } from './admin/add-user/add-user.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { LoginComponent } from './login/login.component';
+import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 
 
 
@@ -46,17 +50,17 @@ import { CheckoutComponent } from './checkout/checkout.component';
         ProfileComponent,
 
         ProductsComponent,
-        CartComponent,
         CategoryProductComponent,
         ProductbycatComponent,
         SingleProductComponent,
         DashboardComponent,
         OrdersComponent,
         UpdateOrderComponent,
-        
         UpdateProductComponent,
         FooterComponent,
-        CheckoutComponent
+        AddUserComponent,
+        ListUserComponent,
+        UpdateuserComponent,
 
         
     ]

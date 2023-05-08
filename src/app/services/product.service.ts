@@ -37,8 +37,8 @@ export class ProductService {
     return this.httpClient.get<Product>(`${this.baseUrl}/find/` + id);
   }
 
-  addTask(formData: FormData): Observable<any> {
-    return this.httpClient.post(this.baseUrl + '/addproduct', formData);
+  addTask(formData: FormData,idU:any): Observable<any> {
+    return this.httpClient.post(this.baseUrl + '/addproduct/' + idU, formData);
   }
 
   updateTask(formData: FormData): Observable<any> {

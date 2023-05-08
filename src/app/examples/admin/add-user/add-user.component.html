@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.center {
+			width: 50%;
+			margin: auto;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+
+
+<div class="center">
+<div id="profile-settings" class="tab-pane fade active show">
+  <div class="pt-3">
+      <div class="settings-form">
+          <h4 class="text-primary">Add User</h4>
+          <form>
+              <div class="form-row">
+                  <div style="display: inline-block; width: 50%; padding-right: 30px;" class="form-group col-md-6">
+                      <label>First Name</label>
+                      <input type="text" id="username" name="username" placeholder="First Name" class="form-control" [(ngModel)]="user.username" required>
+                  </div>
+                  <div style="display: inline-block; width: 50%;" class="form-group col-md-6">
+                      <label>Last Name</label>
+                      <input type="text" id="completname" name="completname" placeholder="Last Name" class="form-control" [(ngModel)]="user.completname" required>
+                  </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-6" style="display: inline-block; width: 50%; padding-right: 30px;" >
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="azerty@gmail.com" class="form-control" [(ngModel)]="user.email" required>
+            </div>
+            <div class="form-group col-md-6"  style="display: inline-block; width: 50%;">
+              <label>Password</label>
+              <input type="password" name="password" id="password"  placeholder="********" class="form-control" [(ngModel)]="user.password" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group col-md-6" id="phone"style="display: inline-block; width: 50%; padding-right: 30px;">
+                  <label>Phone</label>
+                  <input type="text" name="phone" placeholder="+216 *******" class="form-control" [(ngModel)]="user.phone" required>
+              </div>
+
+                  <div class="form-group col-md-6" id="address" style="display: inline-block; width: 50%;">
+                      <label>Address</label>
+                      <input type="text" name="address" class="form-control" [(ngModel)]="user.address" required>
+                  </div>
+                  </div>
+                  <div class="form-row" >
+                  <div class="form-group col-md-6" id="cin"style="display: inline-block; width: 50%; padding-right: 30px;">
+                    <label>Cin</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.cin" required>
+                </div>
+                
+
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select class="form-control" name="role" id="role" [(ngModel)]="user.role" required>
+                  <option value="Provider">Provider</option>
+                  <option value="User">User</option>
+                </select>
+              </div>
+            <br>
+              <div class="form-group">
+              </div>
+              <button class="btn btn-primary" type="submit" (click)="onAddUser()">Add</button>
+          </form>
+      </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

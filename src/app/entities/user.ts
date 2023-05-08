@@ -1,13 +1,18 @@
-
+import { publicDecrypt } from "crypto";
+import { role } from "./role";
 
 export class User {
-    id!: number;
-    fname!: string;
-    lname!: string;
-    email!: string;
-    password!: string;
-    phone!: string;
-    adress!: string;
-    token!: string;
-    enabled!:Boolean;
+   constructor(
+ public id?:number,
+    public cin?:number,
+    public email?:string,
+    public password?:string,
+    public username?:string,
+    public completname?:string,
+    public phone?:number,
+    public address?:string,
+    public  companyname?:string,
+    public active?:boolean,
+    public role?:role,
+   ) {}
 }
