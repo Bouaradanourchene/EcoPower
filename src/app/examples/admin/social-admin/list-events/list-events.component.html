@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="http://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div class="row" style="padding:5%">
+        <div class="col-2">
+            <a  [routerLink]="['/admin/addEvent']" class="btn btn-light" data-bs-toggle="tooltip" title="List view">
+                <i class="fa fa-plus"></i> Add Event
+            </a>
+        </div>
+        <div class="col-4">
+            <select class="form-select" aria-label="Filter"   (change)="onChange($event)">>
+                <option selected value="0">All events</option>
+                <option value="1" >Upcoming events</option>
+                <option value="2" (change)="finishedEvents()">finished events</option>
+                <option value="3" (change)="approvedEvents()">Approved</option>
+                <option value="4" (change)="notApprovedEvents()">Not approved</option>
+            </select>
+
+        </div>
+        <div class="col-3" style="text-align: left">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search...">
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr class="head" >
+            <th scope="col">Event title</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th scope="col">place number</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="rounded bg-white" *ngFor="let p of eventList | paginate: { itemsPerPage: 5, currentPage: currentPage } | filter: searchTerm" >
+            <td class="d-flex align-items-center">
+                <img src="assets/front/images/items/img.png" class="rounded" width="60" height="60">
+                <span class="ml-2">{{p.title}}</span>
+            </td>
+<!--            <td class="align-items-center">{{p.user?.email}}</td>-->
+            <td class="align-items-center">{{p.startDate | date:'d MMM'}}</td>
+            <td class="align-items-center">{{p.endDate | date:'d MMM'}}</td>
+            <td class="align-items-center">{{p.placeNumber}}</td>
+            <td class="align-items-center"><a *ngIf="p.approved" class="btn btn-outline-success btn-sm" (click)="approved(p)" >Approved</a>
+                <a *ngIf="!p.approved" class="btn btn-outline-warning btn-sm" (click)="approved(p)">Not approved</a></td>
+            <td class="align-items-center">
+                <i class="fa-solid fa-pen-to-square" style="color:orange; cursor:pointer" [routerLink]="['/admin/updateEvent/',p.id]" ></i>
+            </td>
+            <td class="align-items-center">
+                <i class="fa-solid fa-trash"  style="color:red; cursor:pointer" (click)="deleteEvent(p.id)"></i>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+
+
+
+</div>

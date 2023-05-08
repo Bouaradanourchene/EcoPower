@@ -1,0 +1,109 @@
+<div class="content">
+
+    <!-- ============== SECTION PAGETOP ============== -->
+
+    <!-- ============== SECTION PAGETOP END// ============== -->
+
+    <!-- ============== SECTION CONTENT ============== -->
+    <section class="padding-y">
+        <div class="container">
+
+            <div class="row">
+                <aside class="col-lg-3">
+
+                    <button class="btn btn-outline-secondary mb-3 w-100  d-lg-none" data-bs-toggle="collapse" data-bs-target="#aside_filter">Show filter</button>
+
+                    <!-- ===== Card for sidebar filter ===== -->
+                    <div id="aside_filter" class="collapse card d-lg-block mb-5">
+
+                        <article class="filter-group">
+                            <header class="card-header">
+                                <a href="#" class="title" data-bs-toggle="collapse" data-bs-target="#collapse_aside3">
+                                    <i class="icon-control fa fa-chevron-down"></i>  Filter
+                                </a>
+                            </header>
+                            <div class="collapse show" id="collapse_aside3">
+                                <div class="card-body">
+                                    <label class="checkbox-btn">
+                                        <input type="checkbox">
+                                        <span class="btn btn-light" (click)="upcomingEvents()">Upcoming Events</span>
+                                    </label>
+
+                                    <label class="checkbox-btn">
+                                        <input type="checkbox">
+                                        <span class="btn btn-light" (click)="finishedEvents()"> Finished events </span>
+                                    </label>
+                                </div> <!-- card-body.// -->
+                            </div> <!-- collapse.// -->
+                        </article>  <!-- filter-group // -->
+
+
+
+                    </div> <!-- card.// -->
+                    <!-- ===== Card for sidebar filter .// ===== -->
+                    >
+                </aside> <!-- col .// -->
+                <main class="col-lg-9">
+
+                    <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
+                        <strong class="d-block py-2">{{eventList.length}} events found </strong>
+                        <div class="ms-auto ">
+                            <div class="btn-group">
+                                <div class="col-6" style="text-align: left">
+                                    <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search...">
+                                </div>
+                                <a  [routerLink]="['addEvent']" class="btn btn-light" data-bs-toggle="tooltip" title="List view">
+                                    <i class="fa fa-plus" ></i> Add Event
+                                </a>
+                                <a href="#" class="btn btn-light active" data-bs-toggle="tooltip" title="Grid view">
+                                    <i class="fa fa-th"></i>
+                                </a>
+                            </div> <!-- btn-group end.// -->
+                        </div>
+                    </header>
+
+                    <!-- ========= content items ========= -->
+                    <div  class="row">
+                        <div *ngFor="let p of eventList | paginate: { itemsPerPage: 5, currentPage: currentPage } | filter: searchTerm" class="col-lg-4 col-md-6 col-sm-6">
+                            <figure class="card card-product-grid">
+                                <div class="img-wrap">
+                                    <img src="/assets/front/images/items/img.png">
+                                </div>
+                                <figcaption class="info-wrap border-top">
+                                    <div class="price-wrap">
+                                        <strong class="price">{{p.title}}</strong>
+                                        <p>
+                                            <i class="fas fa-calendar-alt"></i> {{p.startDate | date:'d MMM'}}
+                                        </p>
+                                        <!--del class="price-old">({{p.price}}+201)</del!-->
+                                    </div> <!-- price-wrap.// -->
+                                    <p>
+                                        <i class="fas fa-user-plus"></i> Place number : {{p.placeNumber }}
+                                    </p>
+
+                                    <a [routerLink]="['/events/event/',p.id]" class="btn btn-primary">Show details</a>
+
+                                </figcaption>
+                            </figure>
+                        </div> <!-- col end.// -->
+                        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+                        <!-- col end.// -->
+                    </div> <!-- row end.// -->
+
+                    <hr>
+                    <footer class="d-flex mt-4">
+
+
+                    </footer>
+
+
+
+
+
+
+                </main>
+            </div>
+
+        </div>
+    </section>
+</div>
