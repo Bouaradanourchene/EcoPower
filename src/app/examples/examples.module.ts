@@ -28,14 +28,14 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
 import { ListUserComponent } from './admin/list-user/list-user.component';
 import { LoginComponent } from './login/login.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
-
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         NgbModule,
+        NgxPaginationModule,
         ReactiveFormsModule
 
     
@@ -48,7 +48,7 @@ import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
         LandingComponent,
         SignupComponent,
         ProfileComponent,
-
+       
         ProductsComponent,
         CategoryProductComponent,
         ProductbycatComponent,

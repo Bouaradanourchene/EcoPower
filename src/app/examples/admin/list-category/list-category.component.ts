@@ -13,6 +13,7 @@ import { CategoryProductService } from 'app/services/category-product.service';
 export class ListCategoryComponent {
   listCategory : Array<CategoryProduct>=[];
   selectedCategory =null;
+  page: number = 1;
   constructor(private categoryService:CategoryProductService) { }
 
   ngOnInit(): void {

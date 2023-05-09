@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './examples/shop/cart/cart.component';
 import { CheckoutComponent } from './examples/checkout/checkout.component';
 import { LoginComponent } from './examples/login/login.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -56,8 +56,9 @@ import { LoginComponent } from './examples/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-        NgbModule,
-        ReactiveFormsModule
+    NgxPaginationModule,
+
+    ReactiveFormsModule
 
   ],
   providers: [ProductService,CategoryProductService],

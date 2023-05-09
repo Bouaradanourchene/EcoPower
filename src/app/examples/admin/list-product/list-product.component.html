@@ -111,7 +111,7 @@
 
                     </thead>
                     <tbody id="myTable2">
-                      <tr *ngFor="let list of productList">
+                      <tr *ngFor="let list of productList  | paginate: {itemsPerPage: 3, currentPage: page }">
                         <td>
                           {{list.name}}
                         </td>
@@ -134,7 +134,11 @@
                       </tr>
                     </tbody>
                   </table>
-                  
+                  <div style="text-align: center;margin-top: 25px;">
+                    <pagination-controls  previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                      (pageChange)=" page = $event ">
+                    </pagination-controls>
+                  </div>
                 </div>
               </div>
             </div>

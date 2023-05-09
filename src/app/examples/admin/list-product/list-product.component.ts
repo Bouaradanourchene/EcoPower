@@ -20,6 +20,7 @@ import { CategoryProduct } from 'app/entities/category-product';
 
 export class ListProductComponent {
   productList: Array<Product> = [];
+  page: number = 1;
   constructor(public productService: ProductService) {}
 ngOnInit(): void {
   return this.getProducts();

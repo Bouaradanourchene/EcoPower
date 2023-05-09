@@ -29,7 +29,7 @@ export class CheckoutService {
 
    // private async getStripeInstance(): Promise<Stripe | null> {
     //  return await this.stripe$;
-    }
+    } 
 
   placeOrder(purchase: Purchase): Observable<any> {
     return this.httpClient.post<Purchase>(this.purchasetUrl, purchase);    
