@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'app/entities/user';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -16,6 +16,7 @@ export class UserService {
   /*private BASE_URL_UpdateAccount ='http://localhost:8000/PI/user/updateaccountwithoutimage';*/
   private BASE_URL_UpdateUser ='http://localhost:9090/user/update';
   private BASE_URL_Getbyid='http://localhost:9090/user/get-user';
+  private BASE_URL_GET_USER='http://localhost:9090/user/bytoken'
  
 
   getUsers(): Observable<any> {
@@ -48,5 +49,14 @@ export class UserService {
   getUserById(id :any){
     return this.http.get(`${this.BASE_URL_Getbyid}/${id}`)
   }
+  /* getUserByToken(token: string): Observable<User> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token} `// Ajout du token dans l'en-tête de la requête
+      })
+    };
+    return this.http.get<User>(`${this.BASE_URL_GET_USER}`, httpOptions).pipe(first());
+  }  */
 
 }

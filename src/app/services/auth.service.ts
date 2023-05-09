@@ -45,6 +45,15 @@ export class AuthService {
   getToken(): string {
     return this.cookieService.get('token');
   }
+ getIDFromcokis(): number {
+    var token = this.cookieService.get("token");
+    if (token != null && token.length != 0) {
+      var payLoad = JSON.parse(window.atob(token.split('.')[1]));
+      var id = payLoad.id as number;
+      return id
+    }
+    return ;
+  }
   authToken(): boolean {
     const token = this.cookieService.get('token');
     if (token) {
