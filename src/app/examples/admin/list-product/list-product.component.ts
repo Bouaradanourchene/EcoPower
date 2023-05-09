@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Product } from 'app/entities/product';
 import { ProductService } from 'app/services/product.service';
 import { CategoryProduct } from 'app/entities/category-product';
+import { UserService } from 'app/services/user.service';
 
 @Component({
   selector: 'app-list-product',
@@ -20,10 +21,10 @@ import { CategoryProduct } from 'app/entities/category-product';
 
 export class ListProductComponent {
   productList: Array<Product> = [];
-  constructor(public productService: ProductService) {}
+  constructor(public productService: ProductService, public userService: UserService) {}
 ngOnInit(): void {
   return this.getProducts();
-}
+  }
 getProducts(): void {
   this.productService.getProductList().subscribe((data: Product[]) => {
     this.productList = data;

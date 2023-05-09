@@ -3,9 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryProduct } from 'app/entities/category-product';
 import { Product } from 'app/entities/product';
+import { User } from 'app/entities/user';
+import { AuthService } from 'app/services/auth.service';
 
 import { CategoryProductService } from 'app/services/category-product.service';
 import { ProductService } from 'app/services/product.service';
+import { UserService } from 'app/services/user.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-add-product',
@@ -26,21 +30,37 @@ export class AddProductComponent implements OnInit {
   file!: string;
   public imagePath: any;
   imgURL: any;
-idU: number= 3;
+  idU: number;
+  token!: string;
+  userId:number;
+  
+
+
   constructor(
     public productService: ProductService,
     private router: Router,
     private categoryProductService: CategoryProductService,
-   // public toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authservice : AuthService
   ) {}
+  
 
   ngOnInit(): void {
+    
     this.categoryProductService.getProductCategories().subscribe((data) => {
       this.categories = data;
     });
     this.infoForm();
+    
   }
+  
+  /* getUserFromToken():any {
+    this.userService.getUserByToken(this.token).pipe(map(user => user.id)).subscribe(id => {
+      console.log('User ID:', id);
+    });
+  
+  } */
+  
 
   infoForm() {
     this.productService.dataForm = this.fb.group({
@@ -52,7 +72,10 @@ idU: number= 3;
     });
   }
 
+ 
+
   addProduct() {
+     this.userId = this.authservice.getIDFromcokis();
     const formData = new FormData();
 
     const product = this.productService.dataForm.value;
@@ -67,9 +90,16 @@ idU: number= 3;
 
     // formData.append('file', this.userFile);
     formData.append('file', this.file);
-    this.productService.addTask(formData,this.idU).subscribe((data) => {
+
+    this.productService.addTask(formData,this.userId
+      
+      
+      
+      
+      ).subscribe((data) => {
       this.router.navigate(['/listProduct']);
     });
+
   }
 
   setNewCategory(category: CategoryProduct): void {

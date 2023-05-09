@@ -137,16 +137,19 @@ setupStripePaymentForm() {
 
 }
 
+
   reviewCartDetails() {
     // subscribe to cartService.totalQuantity
     this.cartService.totalQuantity.subscribe(
       totalQuantity => this.totalQuantity = totalQuantity
     );
+    console.log(this.totalQuantity);
 
     // subscribe to cartService.totalPrice
     this.cartService.totalPrice.subscribe(
       totalPrice => this.totalPrice = totalPrice
     );
+    console.log(this.totalPrice);
 
 
   }
